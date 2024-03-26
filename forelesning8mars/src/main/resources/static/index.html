@@ -1,0 +1,47 @@
+<html>
+<head>
+    <title>Our first web app</title>
+</head>
+<body>
+<h1>Our first web app: Hello world!</h1>
+<p id="stud"></p>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<script>
+    $.get("http://localhost:8080/hello", function(data){
+        console.log(data);
+    })
+
+    $.get("http://localhost:8080/student", function(data){
+        console.log(data);
+        let stud = {
+            name: data.name,
+            age: data.age,
+            university: data.university
+        }
+        document.getElementById("stud").innerHTML = "<p>" +data.name + "</p>"
+    })
+
+    function getStudent(){
+        $.get("http://localhost:8080/student", function(data){
+            console.log(data);
+            stud = {
+                name: data.name,
+                age: data.age,
+                university: data.university
+            }
+            document.getElementById("stud1").innerHTML = "<p>" + stud.name + "</p><br>" +
+                                                            "<p>" + stud.age + "</p><br>" +
+                                                        "<p>" + stud.university + "</p>"
+        })
+
+    }
+</script>
+<h2>Get info from Java endpoint</h2>
+<button onclick="getStudent()">Get student</button>
+<h3>Student details:</h3>
+<p id ="stud1"></p>
+
+<h2> Get list of students </h2>
+<button onclick="getListOfStuidents()">Get students</button>
+</body>
+</html>

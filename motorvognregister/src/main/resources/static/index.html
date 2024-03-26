@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <title>Title</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="script.js"></script>
+</head>
+<body>
+<!--Colors:
+lightcoral
+hotpink
+mediumpurple
+lightpink
+-->
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <h1>Motorvognregister</h1>
+
+            <table>
+                <tr>
+                    <td><label for="personnr">Eiers personnummer</label></td>
+                    <td><label for="navn">Eiers navn</label></td>
+                    <td><label for="adresse">Eiers adresse</label></td>
+                </tr>
+                <tr>
+                    <td><input class="formgroup" id="personnr"></td>
+                    <td><input class="formgroup" id="navn"></td>
+                    <td><input class="formgroup" id="adresse"></td>
+                </tr>
+                <tr>
+                    <td><label for="kjennetegn">Kjennetegn</label></td>
+                    <td><label for="merke">Bilmerke</label></td>
+                    <td><label for="type">Biltype</label></td>
+                </tr>
+                <tr>
+                    <td><input class="formgroup" id="kjennetegn"></td>
+                    <td><input class="formgroup" id="merke"></td>
+                    <td><input class="formgroup" id="type"></td>
+                </tr>
+                <tr>
+                    <td><button class="btn btn-primary" id="registrer">Registrer</button></td>
+                </tr>
+            </table>
+        </div>
+        <div class="col-md-6">
+            <p>Alle bilene:</p>
+            <div id="bilregister"></div>
+            <button class="btn btn-danger" id="slettAlle">Slett alle</button>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

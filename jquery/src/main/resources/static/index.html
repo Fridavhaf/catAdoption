@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="styling.css">
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>jQuery er kult</h1>
+<h2>Gi meg din info!</h2>
+<table class="flex-container">
+    <tr><td><label for="name">Navn : </label></td><td><input id="name" type="text"></td></tr>
+    <tr><td><label for="age">Alder : </label></td><td><input id="age" type="text"></td></tr>
+    <tr><td></td><td><button id="person">Registrer</button></td></tr>
+</table>
+<div id="result"></div>
+
+<h2>Konverter til de grader</h2>
+<table class="flex-container">
+    <tr><td><label for="celsius">Celcius : </label> </td><td><input id="celsius"></td></tr>
+    <tr><td><label for="fahrenheit">Fahrenheit : </label></td><td><input id="fahrenheit"></td></tr>
+</table>
+
+<br>
+<div>
+    <img src="img/ducks.jpeg" height="564" width="564" alt="ducks in the flower field"/>
+</div>
+
+<div>
+
+    <img src="img/pussy.jpeg" height="549" width="564" alt="black cat with big yellow eyes in the flower field"/>
+</div>
+<br>
+<h2>Oppgave 3 : Kalkulator</h2>
+<table class="flex-container">
+    <tr><td><label for="tall1">Tall 1 : </label> </td><td><input id="tall1" type="text"></td></tr>
+    <tr><td><label for="tall2">Tall 2 : </label> </td><td><input id="tall2" type="text"></td></tr>
+    <tr><td></td><td><button id="add">+</button> <button id="subtract">-</button>
+        <button id="multiply">x</button> <button id="divide">/</button></tr>
+    <tr><td>=</td><td id="calculation"></td></tr>
+</table>
+
+<h2>Oppgave 4 : Personregister</h2>
+<div id="table-container" class="flex-container"></div>
+<table class="flex-container">
+    <tr><td><label for="navn">Navn </label></td><td><input id="navn" type="text"></td></tr>
+    <tr><td><label for="adresse">Adresse </label></td><td><input id="adresse"></td></tr>
+    <tr><td><label for="telefonnr">Telefonnr</label></td><td><input id="telefonnr"></td></tr>
+    <tr><td><button id="register">Registrer</button></td></tr>
+    <tr><td><button id="visPersonregister">Vis personregister</button></td></tr>
+</table>
+<table id="table"></table>
+
+
+<script type="application/javascript">
+    let personRegister = [];
+
+    $("#register").click(function (){
+        let [navn, adresse, telefon] = readAndValidate();
+        let person = {navn:navn, adresse:adresse, telefon: telefon};
+        personRegister.push(person);
+    })
+    $("#visPersonregister").click(function (){
+        let html = "<thead><tr><th>Navn</th><th>Adresse</th><th>Telefonnr</th></tr></thead>";
+        for (person of personRegister){
+            html += "<tr><td>" + person.navn+"</td><td>"+ person.adresse+"</td><td>"+person.telefon + "</td></tr>";
+        }
+        $("#table").html(html);
+    })
+
+    function readAndValidate(){
+        let navn = $("#navn").val();
+        let adresse = $("#adresse").val();
+        let telefon = $("#telefonnr").val();
+        if (navn === "" || adresse === "" || telefon === ""){
+            alert("Fyll ut alle feltene");
+        }
+        else {
+            return [navn, adresse, telefon];
+        }
+    }
+
+    //Lager to felles funksjoner for å lese input og validere, for å minimere kode
+    function readInput(){
+        let tall1 = $("#tall1").val();
+        let tall2 = $("#tall2").val();
+        return [tall1, tall2];
+    }
+    function validateInput(tall1, tall2){
+        if (tall1 === "" || tall2 === ""){
+            alert("Fyll inn begge feltene");
+            return false;
+        }
+        if (isNaN(tall1) || isNaN(tall2)){
+            alert("Skriv inn tall i begge feltene")
+            return false;
+        }
+        else{
+            return true;
+        }
+    }
+
+
+    $("#add").click(function (){
+        let [tall1, tall2] = readInput();
+        if (!validateInput(tall1, tall2)){
+            return;
+        }
+        else{
+            let a = Number(tall1);
+            let b = Number(tall2);
+            $("#calculation").html(a+b);
+        }
+    })
+
+    $("#subtract").click(function (){
+        let [tall1, tall2] = readInput();
+        if(!validateInput(tall1, tall2)){
+            return;
+        }
+        else{
+            let a = Number(tall1);
+            let b = Number(tall2);
+            $("#calculation").html(a-b);
+        }
+    })
+
+    $("#multiply").click(function (){
+        let [tall1, tall2] = readInput();
+        if (!validateInput(tall1, tall2)){
+            return;
+        }
+        else{
+            let a = Number(tall1);
+            let b = Number(tall2);
+            $("#calculation").html(a*b);
+        }
+    });
+
+    $("#divide").click(function (){
+        let [tall1, tall2] = readInput();
+        if (!validateInput(tall1, tall2)){
+            return;
+        }
+        else{
+            let a = Number(tall1);
+            let b = Number(tall2);
+            $("#calculation").html(a/b);
+        }
+    })
+
+
+    $("#celsius").change( function () {
+        let inCelsius = $("#celsius").val();
+        let celsius = Number(inCelsius);
+        if (isNaN(celsius)) {
+            alert("Error");
+        } else {
+            let fahrenheit = (9/5)*celsius+32;
+            $("#fahrenheit").val(fahrenheit);
+        }
+    });
+
+    $("#fahrenheit").change(function (){
+        let inFahrenheit = $("#fahrenheit").val();
+        let fahrenheit = Number(inFahrenheit);
+        if (isNaN(fahrenheit)){
+            alert("Error");
+        }
+        else{
+            let celsius = (5/9)*(fahrenheit-32);
+            $("#celsius").val(celsius);
+        }
+    })
+
+    $("#person").click(function (){
+        let inName = $("#name").val();
+        let stringAge = $("#age").val();
+        let inAge = Number(stringAge);
+        if (isNaN(inAge) || inAge < 0 || inName === ""){
+            alert("Error");
+        }
+        else {
+            $("#result").html("navn = " + inName + "<br> alder = "+ inAge);
+        }
+
+    });
+
+
+
+
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,16 @@
+body{
+    background-color: lightblue;
+    text-align: center;
+    color: #301934;
+    margin: 4rem;
+}
+
+.flex-container{
+    display: flex;
+    justify-content: center;
+}
+#table{
+    font-size: medium;
+    margin-left: 35%;
+    margin-top: 2rem;
+}

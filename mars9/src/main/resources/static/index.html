@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+</head>
+<body>
+<h1>Studentregister</h1>
+<table>
+    <tr><td><label for="name">Navn : </label> </td><td><input id="name"></td></tr>
+    <tr><td><label for="age">Alder : </label> </td><td><input id="age"></td></tr>
+    <tr><td><label for="school">Skole : </label></td><td><input id="school"></td></tr>
+    <tr><td></td><td><button id="register">Registrer</button></td></tr>
+</table>
+<div id="studenter">Alle studentene</div>
+
+<script>
+    $("#register").click(function (){
+        const student = {
+            name : $("#name").val(),
+            age : $("#age").val(),
+            school : $("#school").val()
+        };
+        $.post("/lagre", student, function (){
+            hentAlle();
+        })
+        //tøm feltene
+        $("#name").val("");
+        $("#age").val("");
+        $("#school").val("");
+
+    })
+
+    function hentAlle(){
+        $.get("/hentAlle", function (data){
+            formaterData(data);
+        });
+    }
+
+    function formaterData(studenter){
+        let ut = "<table><tr><th>Navn</th><th>Alder</th><th>Skole</th></tr>";
+        for (const student of studenter){
+            ut += "<tr><td>"+ student.name+ "</td><td>"+ student.age +"</td><td>" + student.school + "</td></tr>";
+
+        }
+        ut += "</table>"
+        $("#studenter").html(ut);
+
+    }
+
+</script>
+
+
+</body>
+</html>

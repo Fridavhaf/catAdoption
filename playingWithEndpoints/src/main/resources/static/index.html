@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Pussy Cat</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="script.js"></script>
+    <link rel="stylesheet" href="styling.css">
+
+</head>
+<body>
+<a class="btn" href="adoptionregister.html">Adoption Register</a>
+<h1>Welcome to Cat Adoption AS</h1>
+
+<div>
+    <img src="images/headerCatPows.jpg" alt="Cat Pows">
+</div>
+<br>
+<h2>First we need your information</h2>
+<table>
+    <tr>
+        <td><label for="firstName">First name: </label> </td>
+        <td><input id="firstName"></td>
+    </tr>
+    <tr>
+        <td><label for="lastName">Last name: </label> </td>
+        <td><input id="lastName"></td>
+    </tr>
+    <tr>
+        <td><label for="phoneNumber">Phone number:</label></td>
+        <td><input id="phoneNumber"></td>
+    </tr>
+    <tr>
+        <td><label for="emailAddress">Email address:</label> </td>
+        <td><input id="emailAddress"></td>
+    </tr>
+</table>
+
+<br>
+<h2>Now you can select your cat</h2>
+<table>
+    <tr>
+        <td>
+            <label for="catName">Select name: </label>
+        </td>
+        <td>
+            <input id="catName">
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <label for="breed">Cat Breed: </label>
+        </td>
+        <td>
+            <select name="breed" id="breed">
+                <option value="" selected disabled>select breed</option>
+                <option value="bengal">Bengal cat</option>
+                <option value="abyssinian">Abyssinian</option>
+            </select>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <label for="color">Fur Color: </label>
+        </td>
+        <td>
+            <select name="color" id="color">
+                <option value="" selected disabled> select colour</option>
+                <option value="orange">Orange</option>
+                <option value="grey">Grey</option>
+                <option value="brown">Brown</option>
+                <option value="black">Black</option>
+                <option value="freckly">Freckly</option>
+            </select>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <button id="adopt">Adopt</button>
+        </td>
+    </tr>
+</table>
+
+<br><br>
+<div id="catImg"></div>
+<div id="yourCats"></div>
+
+<div id="customers"></div>
+
+
+
+</body>
+</html>
