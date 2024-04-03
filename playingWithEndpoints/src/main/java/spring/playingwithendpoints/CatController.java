@@ -16,6 +16,7 @@ public class CatController {
         catList.add(cat);
     }
 
+
     @GetMapping("/showCats")
     public List<Cat> returnCats() {
         return catList;
