@@ -74,15 +74,15 @@ $(function (){
             else if (color === "grey"){
                 $("#catImg").html("<img src='images/greyCat.jpg' alt='Your Grey Cat'>")
             }
-            else if (color === "black"){
-                $("#catImg").html("<img src='images/blackCat.jpg' alt='Your Black Cat'>")
-            }
-            else if (color === "brown"){
-                $("#catImg").html("<img src='images/brownCat.webp' alt='Your Brown Cat'>")
-            }
-            else if (color === "freckly"){
-                $("#catImg").html("<img src='images/freckely.webp' alt='Your Freckly Cat'>")
-            }
+            // else if (color === "black"){
+            //     $("#catImg").html("<img src='images/blackCat.jpg' alt='Your Black Cat'>")
+            // }
+            // else if (color === "brown"){
+            //     $("#catImg").html("<img src='images/brownCat.webp' alt='Your Brown Cat'>")
+            // }
+            // else if (color === "freckly"){
+            //     $("#catImg").html("<img src='images/freckely.webp' alt='Your Freckly Cat'>")
+            // }
             else {
                 $("#catImg").html("Sorry, we have no picture of your cat")
             }

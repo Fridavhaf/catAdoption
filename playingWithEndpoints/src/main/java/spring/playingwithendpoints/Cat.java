@@ -8,7 +8,7 @@ public class Cat {
     public Cat() {
     }
 
-    public Cat(String height, String weight, String color) {
+    public Cat(String name, String breed, String color) {
         this.breed = breed;
         this.name = name;
         this.color = color;
